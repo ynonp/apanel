@@ -1,0 +1,80 @@
+[% META title = 'Tomcat Sites Dashboard' %]
+
+<style>
+  .danger {
+
+  }
+</style>
+<h1>Site Info</h1>
+
+<form class="form-horizontal" method="POST">
+  <div class="control-group">
+    <label class="control-label" for="inputName">Domain Name (without www)</label>
+    <div class="controls">
+      <input type="text" id="inputName" placeholder="name" value="[% info.name %]" name="site_name">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputTomcat">Tomcat Name</label>
+    <div class="controls">
+      <input type="text" id="inputTomcat" placeholder="tomcat name" value="[% info.tomcat_name %]" name="tomcat_name">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary x-large">Save Changes</button>
+    </div>
+  </div>
+</form>
+
+[% IF info.name %]
+<form class="form-horizontal" action="/sites/createdir" method="POST">
+  <fieldset>
+    <legend>Site Dir and Permissions</legend>
+  </fieldset>
+  <input type="hidden" value="[% info.name %]" name="site_name" />
+  <div class="control-group">
+    <div class="controls">
+      [% IF info.dir_exists %]
+        <p>Directory "[% info.dir_name %]" exists for this site</p>
+      [% ELSE %]
+        <button type="submit" class="btn x-large">Create Dir</button>
+      [% END %]
+    </div>
+  </div>
+</form>
+
+
+<div class="danger">
+  <h4>Danger Zone</h4>
+  <div class="well">
+    <a href="#myModal" role="button" class="btn btn-danger x-large" data-toggle="modal">Delete Site</a>
+  </div>
+
+</div>
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Are You Sure ?</h3>
+  </div>
+  <div class="modal-body">
+    <p>Really delete site [% info.name %] ?</p>
+  </div>
+  <div class="modal-footer">
+    <form action="/sites/delete/[% info.name %]" method="POST">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">No, Go back</button>
+      <button class="btn btn-danger" id="btn-delete">Yes delete it!</button>
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+
+
+[% END %]
+
+

@@ -1,0 +1,65 @@
+[% META title = 'Tomcat Sites Dashboard' %]
+<style>
+  table {
+    width: 100%;
+  }
+
+  table th {
+    text-align: left;;
+  }
+
+  table tr {
+    cursor: pointer;
+  }
+  div.header a {
+    margin-top: -8px;
+  }
+  div.header {
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+  }
+</style>
+
+      <div class="row header">
+        <div class="span8">
+          <h1>All sites
+            <a href="/sites/create" class="btn btn-success btn-large">Add</a>
+          </h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span12">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>Site Name (on Tomcat)</th>
+              <th>Domain Name</th>
+              <th>Has Folder</th>
+            </tr>
+            </thead>
+            <tbody>
+            [% FOREACH site IN sites %]
+            <tr data-name=[% site.domain_name %]>
+              <td>[% site.tomcat_name %]</td>
+              <td>[% site.domain_name %]</td>
+              <td>
+                [% IF site.has_dir %]
+                <i class="icon-ok"></i>
+                [% ELSE %]
+                &nbsp;
+                [% END %]
+              </td>
+            </tr>
+            [% END %]
+            </tbody>
+          </table>
+          <ul>
+          </ul>
+
+
+        </div>
+      </div>
+
+
+<script src="/static/list.js"></script>
