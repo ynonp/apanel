@@ -9,6 +9,7 @@ use warnings;
 use Apache::Admin::Config;
 
 has 'data', is => 'ro', isa => 'Apache::Admin::Config', lazy_build => 1;
+has 'filename', is => 'ro', required => 1;
 
 sub get_vhost {
   my ( $self, $site_name ) = @_;
@@ -21,7 +22,9 @@ sub get_vhost {
 
 sub _build_data {
   my ( $self ) = @_;
-  return Apache::Admin::Config->new("/etc/apache2/sites-available/ahiad") or die $Apache::Admin::Config::ERROR;
+  use Data::Printer;
+
+  return Apache::Admin::Config->new($self->filename);
 }
 
 sub get_all_sites {

@@ -21,5 +21,6 @@ padding: 9px 0;
  <body>
 [% content %]
  <script type="text/javascript" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+ <script src="/static/js/main.js"></script>
  </body>
 </html>
