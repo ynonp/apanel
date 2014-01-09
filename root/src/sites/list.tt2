@@ -21,7 +21,7 @@
 
 </style>
 
-  <div class="row header">
+  <div class="row">
     <div class="span12">
       <h1>Welcome To aPanel</h1>
       <p>Download tomcat <a href="/tomcat/log">log files</a></p>
@@ -30,9 +30,10 @@
 
       <div class="row header">
         <div class="span8">
-          <h2>All sites
+          <h4>
             <a href="/sites/create" class="btn btn-success btn-large">Add</a>
-          </h2>
+            All sites
+          </h4>
         </div>
       </div>
 
