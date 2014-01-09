@@ -72,8 +72,8 @@ RewriteRule ^/(.*) /Foo/$1 [PT]
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
 
-        ServerName gzahav.co.il
-        ServerAlias www.gzahav.co.il
+        ServerName gzahav.com
+        ServerAlias www.gzahav.com
 
         DocumentRoot /home/ahiad/web/giza/
 
@@ -96,9 +96,9 @@ RewriteRule ^/(.*) /Foo/$1 [PT]
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
 
-        ServerName hostdyn.com
+        ServerName hostdyn.co.il
         ServerAlias www.hostdyn.com
-        ServerAlias www.hostDyn.com
+        ServerAlias www.hostdyn.co.il
 
         DocumentRoot /home/ahiad/web/hostdyn/
 

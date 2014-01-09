@@ -1,6 +1,6 @@
 [% META title = 'Tomcat Sites Dashboard' %]
 
-<style>
+<style xmlns="http://www.w3.org/1999/html">
   .danger {
 
   }
@@ -22,9 +22,18 @@
   </div>
   <div class="control-group">
     <div class="controls">
+      <label class="checkbox">
+        <input type="checkbox" name="watch" [% IF info.watched %] checked="CHECKED" [% END %] >
+        Site is tracked by Keepalive script
+      </label>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
       <button type="submit" class="btn btn-primary x-large">Save Changes</button>
     </div>
   </div>
+
 </form>
 
 [% IF info.name %]

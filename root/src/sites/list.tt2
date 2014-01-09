@@ -18,6 +18,7 @@
     border-bottom: 1px solid gray;
     padding-bottom: 10px;
   }
+
 </style>
 
       <div class="row header">
@@ -35,7 +36,7 @@
             <tr>
               <th>Site Name (on Tomcat)</th>
               <th>Domain Name</th>
-              <th>Has Folder</th>
+              <th>Tracked By Script</th>
             </tr>
             </thead>
             <tbody>
@@ -43,13 +44,14 @@
             <tr data-name=[% site.domain_name %]>
               <td>[% site.tomcat_name %]</td>
               <td>[% site.domain_name %]</td>
-              <td>
-                [% IF site.has_dir %]
-                <i class="icon-ok"></i>
-                [% ELSE %]
-                &nbsp;
-                [% END %]
-              </td>
+            <td>
+              [% DOMAIN_NAME = site.domain_name %]
+              [% IF watched.$DOMAIN_NAME %]
+              <i class="icon-ok"></i>
+              [% ELSE %]
+              &nbsp;
+              [% END %]
+            </td>
             </tr>
             [% END %]
             </tbody>
