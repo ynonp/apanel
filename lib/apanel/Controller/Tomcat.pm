@@ -23,6 +23,8 @@ sub log : Chained('base') PathPart Args(0) GET {
   my ( $self, $c ) = @_;
 
   open my $fh, '<', '/var/log/tomcat6/catalina.out' or die 'Failed to open log file';
+
+  $c->res->content_type('text/plain');
   $c->res->body($fh);
 }
 
