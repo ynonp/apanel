@@ -25,6 +25,7 @@ sub log : Chained('base') PathPart Args(0) GET {
   open my $fh, '<', '/var/log/tomcat6/catalina.out' or die 'Failed to open log file';
 
   $c->res->content_type('text/plain');
+  $c->res->header('Content-Disposition' => "attachment; filename=catalina.out");
   $c->res->body($fh);
 }
 
